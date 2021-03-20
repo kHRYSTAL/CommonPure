@@ -122,4 +122,22 @@
         app:stv_solid="@color/color_3CBEA0"
         app:stv_corner="@dimen/dp_20" />
 
+    <com.coorchice.library.SuperTextView
+        android:id="@+id/tv_sanfang"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginRight="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_25"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:text="第三方"
+        android:gravity="center"
+
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_15"
+        android:layout_alignParentRight="true"
+
+        android:padding="@dimen/dp_5"
+        app:stv_solid="@color/color_3CBEA0"
+        app:stv_corner="@dimen/dp_20" />
+
 </LinearLayout>

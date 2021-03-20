@@ -211,4 +211,51 @@ public class SpUtil {
         return dataList;
     }
 
+    /**
+     * 从本地SP中读取对象
+     *
+     * @param key
+     * @param <T>
+     * @return
+     */
+    public static <T extends Object> T getObjFromSP(String key) {
+
+//        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME_DEFAULT, Context.MODE_PRIVATE);
+        String result = getSp().getString(key, "");
+//        MyLog.i(TAG,"result--"+result);
+        if (TextUtils.isEmpty(result)) return null;
+        byte[] bytes = Base64.decode(result, Base64.DEFAULT);
+        MyLog.i(TAG,"bytes--"+bytes.toString());
+        if (bytes.length ==0) return null;
+        ByteArrayInputStream bis= null;
+        ObjectInputStream ois = null;
+        T obj = null;
+        try {
+            bis = new ByteArrayInputStream(bytes);
+            ois = new ObjectInputStream(bis);
+            obj = (T) ois.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (ois != null) {
+                try {
+                    ois.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (bis != null) {
+                try {
+                    bis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return obj;
+    }
+
+
 }

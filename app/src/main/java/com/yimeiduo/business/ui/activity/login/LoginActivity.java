@@ -11,6 +11,7 @@ import com.yimeiduo.business.base.BaseActivity;
 import com.yimeiduo.business.entity.CommonResponse;
 import com.yimeiduo.business.entity.response.LoginEntity;
 import com.yimeiduo.business.ui.activity.MainActivity;
+import com.yimeiduo.business.ui.activity.SanFangActivity;
 import com.yimeiduo.business.ui.activity.login.presenter.LoginPresenter;
 import com.yimeiduo.business.ui.activity.login.view.ILoginView;
 import com.yimeiduo.business.util.CommonUtils;
@@ -74,17 +75,20 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
                 });
     }
 
-    @OnClick({R.id.tv_login})
+    @OnClick({R.id.tv_login, R.id.tv_sanfang})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.tv_login:
 //                login();
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                finish();
+                break;
+            case  R.id.tv_sanfang:
+                startActivity(new Intent(LoginActivity.this, SanFangActivity.class));
                 break;
 
         }
     }
+
 
     private void login() {
         if (TextUtils.isEmpty(et_user.getText().toString().trim()) ||

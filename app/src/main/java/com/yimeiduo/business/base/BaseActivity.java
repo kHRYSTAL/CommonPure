@@ -220,9 +220,9 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
                 return;
             }else{
                 AppManager.getAppManager().finishAllActivity();
-                System.exit(0);
-                int pid = android.os.Process.myPid();
-                android.os.Process.killProcess(pid);
+//                System.exit(0);
+//                int pid = android.os.Process.myPid();
+//                android.os.Process.killProcess(pid);
             }
         }
         super.onBackPressed();// finish()
