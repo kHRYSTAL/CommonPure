@@ -60,16 +60,22 @@ public class SanFangActivity extends BaseActivity {
      *  setText--checkForRelayout();--requestLayout（）--ViewRootImpl实现了父类的requestLayout（）--
      *  checkThread();--if (mThread != Thread.currentThread()) {throw new CalledFromWrongThreadException}
      *
+     * event  先于  onResume执行
      * */
-
-
 
     @Subscribe(threadMode = ThreadMode.ASYNC)
     public void event(TypeEvent event){
-       String result = event.getType();
+        MyLog.e(TAG,"event--" + event);
+        String result = event.getType();
         tv_desc.setText(result);
-        MyLog.i(TAG,"result--" + result);
-        ToastUtil.showShort(result);
+        MyLog.e(TAG,"result--" + result);
+//        ToastUtil.showShort(result);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyLog.e(TAG,"onResume()--" );
     }
 
     @Override
