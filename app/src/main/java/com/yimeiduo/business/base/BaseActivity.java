@@ -78,7 +78,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
         //初始化的时候将其添加到集合中
         synchronized (mActivities) {
             mActivities.add(this);
-            AppManager.getAppManager().addActivity(this);
+//            AppManager.getAppManager().addActivity(this);
         }
 
         mPresenter = createPresenter();
@@ -219,7 +219,9 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
                 mPreTime = System.currentTimeMillis();
                 return;
             }else{
-                AppManager.getAppManager().finishAllActivity();
+
+                mCurrentActivity.finish();
+//                AppManager.getAppManager().finishAllActivity();
 //                System.exit(0);
 //                int pid = android.os.Process.myPid();
 //                android.os.Process.killProcess(pid);

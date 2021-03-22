@@ -2,6 +2,10 @@ package com.yimeiduo.business.ui.activity.login;
 
 import android.Manifest;
 import android.content.Intent;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -9,15 +13,20 @@ import android.widget.EditText;
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseActivity;
 import com.yimeiduo.business.entity.CommonResponse;
+import com.yimeiduo.business.entity.response.CommonBean;
 import com.yimeiduo.business.entity.response.LoginEntity;
 import com.yimeiduo.business.ui.activity.MainActivity;
 import com.yimeiduo.business.ui.activity.SanFangActivity;
 import com.yimeiduo.business.ui.activity.login.presenter.LoginPresenter;
 import com.yimeiduo.business.ui.activity.login.view.ILoginView;
+import com.yimeiduo.business.ui.adapter.CommonAdapter;
 import com.yimeiduo.business.util.CommonUtils;
 import com.yimeiduo.business.util.ToastUtil;
 import com.coorchice.library.SuperTextView;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -25,13 +34,11 @@ import io.reactivex.functions.Consumer;
 
 public class LoginActivity extends BaseActivity<LoginPresenter> implements ILoginView {
 
-    @BindView(R.id.tv_login)
-    SuperTextView tv_login;
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+    private CommonAdapter adapter;
 
-    @BindView(R.id.et_user)
-    EditText et_user;
-    @BindView(R.id.et_password)
-    EditText et_password;
+    private List<CommonBean> list;
 
     protected LoginPresenter createPresenter() {
         return new LoginPresenter(LoginActivity.this);
@@ -50,6 +57,52 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
     @Override
     public void initView() {
         permissions();
+
+        list = new ArrayList<>();
+        list.add(new CommonBean("MVP架构",1));
+        list.add(new CommonBean("MVVM架构",0));
+        list.add(new CommonBean("第三方-eventbus",1));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(LoginActivity.this);
+        layoutManager.setOrientation(OrientationHelper.VERTICAL);//设置为垂直布局，这也是默认的
+        recyclerView.setLayoutManager(layoutManager);//设置布局管理器
+        adapter = new CommonAdapter(LoginActivity.this, list);//设置Adapter
+        recyclerView.setAdapter(adapter);
+//        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), 0));   //设置分隔线
+        recyclerView.setItemAnimator(new DefaultItemAnimator());//设置增加或删除条目的动画
+
+        adapter.setOnItemClickListener(new CommonAdapter.onItemClickListener() {
+            @Override
+            public void onItemClick(View view, String type, int position) {
+                switch (position){
+                    case 0:
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        startActivity(new Intent(LoginActivity.this, SanFangActivity.class));
+                        break;
+                    case 3:
+                        break;
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onCodeSuccess(CommonResponse commonResponse) {
+    }
+
+    @Override
+    public void onSuccess(LoginEntity loginEntity) {
+        hideProgress();
+    }
+
+    @Override
+    public void onFails(String exception) {
+        hideProgress();
+        ToastUtil.showShort(exception);
     }
 
     private void permissions() {
@@ -73,54 +126,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
                         }
                     }
                 });
-    }
-
-    @OnClick({R.id.tv_login, R.id.tv_sanfang})
-    public void onViewClicked(View view) {
-        switch (view.getId()){
-            case R.id.tv_login:
-//                login();
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                break;
-            case  R.id.tv_sanfang:
-                startActivity(new Intent(LoginActivity.this, SanFangActivity.class));
-                break;
-
-        }
-    }
-
-
-    private void login() {
-        if (TextUtils.isEmpty(et_user.getText().toString().trim()) ||
-                TextUtils.isEmpty(et_password.getText().toString().trim())){
-            ToastUtil.showShort("账号或者密码不能为空");
-            return;
-        }else{
-
-            if (!CommonUtils.isChinaPhoneLegal(et_user.getText().toString())) {
-                ToastUtil.showShort("手机号码无效");
-                return;
-            }
-
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
-        }
-
-    }
-
-    @Override
-    public void onCodeSuccess(CommonResponse commonResponse) {
-    }
-
-    @Override
-    public void onSuccess(LoginEntity loginEntity) {
-        hideProgress();
-    }
-
-    @Override
-    public void onFails(String exception) {
-        hideProgress();
-        ToastUtil.showShort(exception);
     }
 
 }

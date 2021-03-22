@@ -16,4 +16,6 @@ public class Constant {
 
     public static final int PICTURE_MAX= 3;
 
+    public static final String ITEM= "item";
+
 }
