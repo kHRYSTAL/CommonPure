@@ -4,7 +4,7 @@ import android.os.Environment;
 
 public class Constant {
 
-    public static final String URL_BASE = "https://www.baidu.com";//正式环境接口
+    public static final String URL_BASE = "http://www.weather.com.cn/";//正式环境接口
 
     public static final String ROOT_DIR = Environment.getExternalStorageDirectory() + "/Constructor/";
 

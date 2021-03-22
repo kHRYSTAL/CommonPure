@@ -16,6 +16,7 @@ import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * RetrofitHelper用于Retrofit的初始化
@@ -79,8 +80,9 @@ public class RetrofitHelper {
         mClient = builder.build();
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(Constant.URL_BASE)
-                .addConverterFactory(XGsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+//                .addConverterFactory(XGsonConverterFactory.create())
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(mClient)
                 .build();
         retrofitService = mRetrofit.create(RetrofitService.class);

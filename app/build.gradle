@@ -76,6 +76,11 @@ android {
             signingConfig signingConfigs.debug  //签名
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

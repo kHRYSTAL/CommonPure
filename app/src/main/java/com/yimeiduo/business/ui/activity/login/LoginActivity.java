@@ -15,6 +15,7 @@ import com.yimeiduo.business.base.BaseActivity;
 import com.yimeiduo.business.entity.CommonResponse;
 import com.yimeiduo.business.entity.response.CommonBean;
 import com.yimeiduo.business.entity.response.LoginEntity;
+import com.yimeiduo.business.mvvm.QueryWeatherActivity;
 import com.yimeiduo.business.ui.activity.MainActivity;
 import com.yimeiduo.business.ui.activity.SanFangActivity;
 import com.yimeiduo.business.ui.activity.login.presenter.LoginPresenter;
@@ -60,7 +61,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
 
         list = new ArrayList<>();
         list.add(new CommonBean("MVP架构",1));
-        list.add(new CommonBean("MVVM架构",0));
+        list.add(new CommonBean("MVVM架构",1));
         list.add(new CommonBean("第三方-eventbus",1));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(LoginActivity.this);
@@ -79,6 +80,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         break;
                     case 1:
+                        startActivity(new Intent(LoginActivity.this, QueryWeatherActivity.class));
                         break;
                     case 2:
                         startActivity(new Intent(LoginActivity.this, SanFangActivity.class));
