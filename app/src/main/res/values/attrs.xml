@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme_dialog" parent="@android:style/Theme.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowSoftInputMode">stateHidden|adjustPan</item>
-    </style>
-
     <declare-styleable name="CountDownTimeTextView">
         <attr name="border" format="boolean">false</attr>
     </declare-styleable>

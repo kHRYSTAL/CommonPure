@@ -10,98 +10,16 @@
         <item name="android:windowBackground">@color/white</item>
     </style>
 
-    <style name="nobutton_stype">
-        <item name="android:button">@null</item>
-        <item name="android:gravity">center</item>
-    </style>
-
 
     <!-- 选择列表项基本样式 -->
-    <style name="base_item_style" parent="default_title_style">
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingLeft">@dimen/item_padding_left</item>
-        <item name="android:paddingRight">@dimen/item_padding_right</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:clipToPadding">false</item>
-        <item name="android:layout_height">@dimen/item_layout_height</item>
-    </style>
     <!-- 默认字体样式 -->
-    <style name="default_title_style">
-        <item name="android:textSize">@dimen/default_title_size</item>
-        <item name="android:textColor">@color/default_title_color</item>
-    </style>
 
     <!-- 默认编辑框样式 -->
-    <style name="default_edit_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/item_layout_height</item>
-        <item name="android:background">@color/white</item>
-        <item name="android:textSize">@dimen/default_text_size</item>
-        <item name="android:textColor">@color/default_title_color</item>
-        <item name="android:textColorHint">@color/default_detail_color</item>
-        <item name="android:gravity">right|center_vertical</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:lines">1</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:paddingRight">16dp</item>
-    </style>
     <!-- 描述编辑框样式 -->
-    <style name="default_remark_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/white</item>
-        <item name="android:textSize">@dimen/default_text_size</item>
-        <item name="android:textColor">@color/default_title_color</item>
-        <item name="android:textColorHint">@color/default_detail_color</item>
-        <item name="android:gravity">left|center_vertical</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
-    </style>
     <!-- 默认文字样式 -->
-    <style name="default_text_style">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/item_layout_height</item>
-        <item name="android:background">@color/white</item>
-        <item name="android:textSize">@dimen/default_text_size</item>
-        <item name="android:textColor">@color/default_title_color</item>
-        <item name="android:gravity">center</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
-    </style>
     <!-- 默认文字样式分割 -->
-    <style name="default_text_style2">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/default_split_color</item>
-        <item name="android:textColor">@color/default_text_color</item>
-        <item name="android:textSize">@dimen/default_content_size</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
-    </style>
     <!-- 分割线-->
-    <style name="default_view_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/split_line_width</item>
-        <item name="android:layout_marginLeft">16dp</item>
-        <item name="android:layout_marginRight">16dp</item>
-        <item name="android:background">@color/default_split_color</item>
-    </style>
     <!-- 公共按钮样式 -->
-    <style name="stv_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/dp_40</item>
-        <item name="android:textSize">@dimen/text_size_16</item>
-        <item name="android:textColor">@color/default_title_color</item>
-        <item name="android:textColorHint">@color/default_detail_color</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">@dimen/dp_20</item>
-        <item name="android:layout_marginRight">@dimen/dp_20</item>
-        <item name="android:layout_marginBottom">@dimen/dp_20</item>
-        <item name="android:layout_centerInParent">true</item>
-    </style>
 
     <style name="Dialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -128,11 +46,6 @@
         <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
         <!--退出-->
         <item name="android:windowExitAnimation">@anim/dialog_exit</item>
-    </style>
-
-    <style name="AnimBottom" parent="@android:style/Animation">
-        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
-        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
     </style>
 
     <style name="MyTabLayoutAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
@@ -163,18 +76,6 @@
         <item name="android:windowBackground">@mipmap/dialog_load_bg</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-    <style name="MainButtonStyle">
-        <!-- Customize your theme here. -->
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:button">@null</item>
-        <!--   <item name="android:drawablePadding">3dp</item>-->
-        <!--<item name="android:textColor">@drawable/bottom_button_text_selector</item>-->
-        <item name="android:textSize">10sp</item>
-        <item name="android:gravity">center</item>
     </style>
 
 </resources>

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">日常工具集</string>
-    <string name="app_id">5d71b3b5</string>
 
 
     <!--add by cq  start   -->
@@ -8,18 +7,6 @@
     <string name="tab_business">美言</string>
     <string name="tab_me">我的</string>
 
-    <string name="refresh_pull_down_text">下拉推荐</string>
-    <string name="refresh_release_text">松开推荐</string>
-    <string name="refresh_ing_text">推荐中</string>
-
-    <string name="net_error">网络异常，请检查后重试</string>
-    <string name="write_storage_permission_deny">保存失败，SD卡写入权限被拒绝</string>
-
-    <string name="text_pic_max">最多添加9张照片</string>
-    <string name="text_loading">加载中...</string>
-    <string name="text_no_data"></string>
-
-    <string name="url_company">https://www.youtukd.com</string>
     <string name="desc_spread">查看更多</string>
     <string name="desc_shrinkup">收起</string>
 

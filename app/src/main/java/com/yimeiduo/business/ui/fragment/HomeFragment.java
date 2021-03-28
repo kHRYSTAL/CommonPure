@@ -1,14 +1,23 @@
 package com.yimeiduo.business.ui.fragment;
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+
+import com.yimeiduo.business.Constant;
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseFragment;
 import com.yimeiduo.business.base.BasePresenter;
+import com.yimeiduo.business.ui.adapter.RecycleAdapter;
 import com.yimeiduo.business.util.MyLog;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -20,6 +29,9 @@ public class HomeFragment extends BaseFragment  {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
+
+    private RecycleAdapter adapter;
+    private List<String> list;
 
     @Override
     protected BasePresenter createPresenter() {
@@ -44,13 +56,18 @@ public class HomeFragment extends BaseFragment  {
 
     private void initRecyclerView() {
 
-       /* LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(OrientationHelper.VERTICAL);//设置为垂直布局，这也是默认的
         recyclerView.setLayoutManager(layoutManager);//设置布局管理器
-        adapter = new OrderAdapter(getActivity(), list,Constant.ORDER_ON);//设置Adapter
+        adapter = new RecycleAdapter(getActivity(), list);//设置Adapter
         recyclerView.setAdapter(adapter);
 //        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), 0));   //设置分隔线
-        recyclerView.setItemAnimator(new DefaultItemAnimator());//设置增加或删除条目的动画*/
+        recyclerView.setItemAnimator(new DefaultItemAnimator());//设置增加或删除条目的动画
 
 
         refreshLayout.setEnableRefresh(false);
