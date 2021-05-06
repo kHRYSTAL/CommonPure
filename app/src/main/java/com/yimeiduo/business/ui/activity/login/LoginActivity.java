@@ -1,6 +1,7 @@
 package com.yimeiduo.business.ui.activity.login;
 
 import android.Manifest;
+import android.content.ContentProvider;
 import android.content.Intent;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,7 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseActivity;
 import com.yimeiduo.business.entity.CommonResponse;
@@ -37,6 +40,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
+    @BindView(R.id.iv_logo)
+    ImageView iv_logo;
+
+
+
     private CommonAdapter adapter;
 
     private List<CommonBean> list;
@@ -58,6 +66,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
     @Override
     public void initView() {
         permissions();
+
+        Glide.with(this)
+                .load("http://images.youtukd.com/2020/02/14/1581660763873.jpg")
+                .placeholder(R.mipmap.ic_logo)
+                .override(300,300)
+                .into(iv_logo);
 
         list = new ArrayList<>();
         list.add(new CommonBean("MVP架构",1));
