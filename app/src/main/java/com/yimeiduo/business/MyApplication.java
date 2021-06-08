@@ -8,7 +8,9 @@ import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import com.github.moduth.blockcanary.BlockCanary;
 import com.squareup.leakcanary.LeakCanary;
+import com.yimeiduo.business.util.AppBlockContext;
 import com.yimeiduo.business.util.GlideImageLoader;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.view.CropImageView;
@@ -86,6 +88,8 @@ public class MyApplication extends MultiDexApplication {
 
 
         initImagePicker();
+
+        BlockCanary.install(this, new AppBlockContext()).start();
     }
 
 

@@ -91,12 +91,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
             public void onItemClick(View view, String type, int position) {
                 switch (position){
                     case 0:
-                        /*try {
+                        try {
                             Thread.sleep(100000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
-                        }*/
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        }
+//                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         break;
                     case 1:
                         startActivity(new Intent(LoginActivity.this, QueryWeatherActivity.class));
