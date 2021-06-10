@@ -123,6 +123,11 @@
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:theme="@style/AppTheme"/>
 
+        <activity
+            android:name="com.yimeiduo.business.ui.activity.CoordinatorLayoutActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:theme="@style/AppTheme"/>
 
     </application>
 

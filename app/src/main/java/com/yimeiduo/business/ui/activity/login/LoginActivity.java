@@ -19,6 +19,7 @@ import com.yimeiduo.business.entity.CommonResponse;
 import com.yimeiduo.business.entity.response.CommonBean;
 import com.yimeiduo.business.entity.response.LoginEntity;
 import com.yimeiduo.business.mvvm.QueryWeatherActivity;
+import com.yimeiduo.business.ui.activity.CoordinatorLayoutActivity;
 import com.yimeiduo.business.ui.activity.MainActivity;
 import com.yimeiduo.business.ui.activity.SanFangActivity;
 import com.yimeiduo.business.ui.activity.login.presenter.LoginPresenter;
@@ -77,6 +78,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
         list.add(new CommonBean("MVP架构",1));
         list.add(new CommonBean("MVVM架构",1));
         list.add(new CommonBean("第三方-eventbus",1));
+        list.add(new CommonBean("CoordinatorLayout",1));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(LoginActivity.this);
         layoutManager.setOrientation(OrientationHelper.VERTICAL);//设置为垂直布局，这也是默认的
@@ -105,6 +107,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
                         startActivity(new Intent(LoginActivity.this, SanFangActivity.class));
                         break;
                     case 3:
+                        startActivity(new Intent(LoginActivity.this, CoordinatorLayoutActivity.class));
                         break;
                 }
             }
