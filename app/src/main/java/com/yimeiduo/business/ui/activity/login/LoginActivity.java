@@ -3,14 +3,16 @@ package com.yimeiduo.business.ui.activity.login;
 import android.Manifest;
 import android.content.ContentProvider;
 import android.content.Intent;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
+
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.OrientationHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.yimeiduo.business.R;
@@ -81,7 +83,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
         list.add(new CommonBean("CoordinatorLayout",1));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(LoginActivity.this);
-        layoutManager.setOrientation(OrientationHelper.VERTICAL);//设置为垂直布局，这也是默认的
+        layoutManager.setOrientation(RecyclerView.VERTICAL);//设置为垂直布局，这也是默认的
         recyclerView.setLayoutManager(layoutManager);//设置布局管理器
         adapter = new CommonAdapter(LoginActivity.this, list);//设置Adapter
         recyclerView.setAdapter(adapter);

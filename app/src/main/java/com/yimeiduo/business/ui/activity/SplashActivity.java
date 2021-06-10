@@ -7,12 +7,13 @@ import android.text.TextUtils;
 import com.yimeiduo.business.Constant;
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseActivity;
+
 import com.yimeiduo.business.base.BasePresenter;
 import com.yimeiduo.business.entity.response.LoginEntity;
 import com.yimeiduo.business.ui.activity.login.LoginActivity;
 import com.yimeiduo.business.util.MyLog;
 import com.yimeiduo.business.util.SpUtil;
-import com.yimeiduo.business.util.UIUtils;
+import com.yimeiduo.business.util.UIUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import io.reactivex.functions.Consumer;
@@ -74,7 +75,7 @@ public class SplashActivity extends BaseActivity {
         String token = (String)SpUtil.get(Constant.SP_TOKEN,"");
         if (loginEntity != null && !TextUtils.isEmpty(token)) {
             MyLog.i(TAG, loginEntity.toString());
-            UIUtils.postTaskDelay(new Runnable() {
+            UIUtil.postTaskDelay(new Runnable() {
                 @Override
                 public void run() {
                     startActivity(new Intent(SplashActivity.this,MainActivity.class));

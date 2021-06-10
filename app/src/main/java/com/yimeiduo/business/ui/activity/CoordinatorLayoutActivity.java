@@ -1,12 +1,9 @@
 package com.yimeiduo.business.ui.activity;
 
-import android.content.Intent;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.TextView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.OrientationHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseActivity;
@@ -57,7 +54,7 @@ public class CoordinatorLayoutActivity extends BaseActivity {
         }
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(CoordinatorLayoutActivity.this);
-        layoutManager.setOrientation(OrientationHelper.VERTICAL);//设置为垂直布局，这也是默认的
+        layoutManager.setOrientation(RecyclerView.VERTICAL);//设置为垂直布局，这也是默认的
         recyclerView.setLayoutManager(layoutManager);//设置布局管理器
         adapter = new CommonAdapter(CoordinatorLayoutActivity.this, list);//设置Adapter
         recyclerView.setAdapter(adapter);

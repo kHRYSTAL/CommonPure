@@ -6,12 +6,11 @@ import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
 
 import com.yimeiduo.business.MyApplication;
 
 
-public class UIUtils {
+public class UIUtil {
 
     /**
      * 得到上下文
@@ -165,7 +164,7 @@ public class UIUtils {
      * 收起软键盘
      */
     public static void hideInput(View view) {
-        InputMethodManager imm = (InputMethodManager) UIUtils.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) UIUtil.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

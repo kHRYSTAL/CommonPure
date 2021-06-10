@@ -2,9 +2,7 @@ package com.yimeiduo.business.widget.RecyclerWheelView;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.Adapter;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -12,13 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 /**
  * 数据需要完成toString方法
  * Created by voiddog on 2015/10/22.
  */
-public class TextWheelAdapter extends Adapter<TextWheelAdapter.MyViewHolder> {
+public class TextWheelAdapter extends RecyclerView.Adapter<TextWheelAdapter.MyViewHolder> {
     List mTextList;
     //字体颜色
     int mTextColor;
@@ -89,7 +89,7 @@ public class TextWheelAdapter extends Adapter<TextWheelAdapter.MyViewHolder> {
         return mTextList == null ? 0 : mTextList.size();
     }
 
-    class MyViewHolder extends ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tv;
 
         public MyViewHolder(View view) {

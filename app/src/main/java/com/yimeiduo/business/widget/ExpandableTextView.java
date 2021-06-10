@@ -34,11 +34,13 @@ import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 
+import androidx.appcompat.widget.AppCompatTextView;
+
 import com.yimeiduo.business.R;
 
 import java.lang.reflect.Field;
 
-public class ExpandableTextView extends android.support.v7.widget.AppCompatTextView {
+public class ExpandableTextView extends AppCompatTextView {
 
     public static final int STATE_SHRINK = 0;
     public static final int STATE_EXPAND = 1;

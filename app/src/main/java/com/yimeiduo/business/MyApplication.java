@@ -4,14 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.multidex.MultiDex;
-import android.support.multidex.MultiDexApplication;
+
+
+import androidx.annotation.NonNull;
+import androidx.multidex.MultiDex;
+import androidx.multidex.MultiDexApplication;
 
 import com.github.moduth.blockcanary.BlockCanary;
 import com.squareup.leakcanary.LeakCanary;
-import com.yimeiduo.business.util.AppBlockContext;
-import com.yimeiduo.business.util.GlideImageLoader;
+
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.view.CropImageView;
 import com.scwang.smartrefresh.header.MaterialHeader;
@@ -23,6 +24,8 @@ import com.scwang.smartrefresh.layout.api.RefreshFooter;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.yimeiduo.business.util.AppBlockContext;
+import com.yimeiduo.business.util.GlideImageLoader;
 
 
 public class MyApplication extends MultiDexApplication {

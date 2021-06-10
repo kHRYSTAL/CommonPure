@@ -1,5 +1,6 @@
 package com.yimeiduo.business.net;
 
+
 import com.yimeiduo.business.mvvm.model.WeatherData;
 
 import retrofit2.Call;

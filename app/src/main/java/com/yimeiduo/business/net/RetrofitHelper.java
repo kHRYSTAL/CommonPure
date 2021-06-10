@@ -1,8 +1,8 @@
 package com.yimeiduo.business.net;
 
+
 import com.yimeiduo.business.Constant;
 import com.yimeiduo.business.entity.response.LoginEntity;
-import com.yimeiduo.business.net.converter.XGsonConverterFactory;
 import com.yimeiduo.business.util.MyLog;
 import com.yimeiduo.business.util.SpUtil;
 

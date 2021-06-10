@@ -1,8 +1,9 @@
 package com.yimeiduo.business.mvvm.viewmodel;
 
-import android.databinding.ObservableBoolean;
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableField;
 import android.util.Log;
+
 
 import com.yimeiduo.business.mvvm.model.WeatherData;
 import com.yimeiduo.business.mvvm.model.WeatherInfo;

@@ -1,12 +1,12 @@
 package com.yimeiduo.business.ui.fragment;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
 
-import com.yimeiduo.business.Constant;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.OrientationHelper;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseFragment;
 import com.yimeiduo.business.base.BasePresenter;
@@ -62,7 +62,7 @@ public class HomeFragment extends BaseFragment  {
         list.add("3");
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        layoutManager.setOrientation(OrientationHelper.VERTICAL);//设置为垂直布局，这也是默认的
+        layoutManager.setOrientation(RecyclerView.VERTICAL);//设置为垂直布局，这也是默认的
         recyclerView.setLayoutManager(layoutManager);//设置布局管理器
         adapter = new RecycleAdapter(getActivity(), list);//设置Adapter
         recyclerView.setAdapter(adapter);

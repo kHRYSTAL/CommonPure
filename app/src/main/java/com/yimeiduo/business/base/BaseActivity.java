@@ -4,21 +4,22 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.chaychan.library.UIUtils;
 import com.yimeiduo.business.entity.response.LoginEntity;
 import com.yimeiduo.business.listener.PermissionListener;
 import com.yimeiduo.business.ui.activity.MainActivity;
-import com.yimeiduo.business.util.AppManager;
 import com.yimeiduo.business.util.ToastUtil;
-import com.yimeiduo.business.util.UIUtils;
-import com.yimeiduo.business.widget.dialog.LoadingDialog;
+import com.yimeiduo.business.util.UIUtil;
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
+import com.yimeiduo.business.widget.dialog.LoadingDialog;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -65,7 +66,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
                 @Override
                 public void onStateChanged(int state) {
                     //收起软键盘
-                    UIUtils.hideInput(getWindow().getDecorView());
+                    UIUtil.hideInput(getWindow().getDecorView());
                 }
                 @Override
                 public void onPositionChanged(float percent) {

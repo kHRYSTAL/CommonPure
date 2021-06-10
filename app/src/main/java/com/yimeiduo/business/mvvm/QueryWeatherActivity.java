@@ -1,9 +1,9 @@
 package com.yimeiduo.business.mvvm;
 
-import android.databinding.DataBindingUtil;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.databinding.ActivityWeatherBinding;

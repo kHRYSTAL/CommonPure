@@ -1,7 +1,8 @@
 package com.yimeiduo.business.ui.fragment;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseFragment;

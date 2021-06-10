@@ -1,7 +1,8 @@
 package com.yimeiduo.business.widget.RecyclerWheelView;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by voiddog on 2015/10/21.
