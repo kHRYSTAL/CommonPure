@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yimeiduo.business.widget.PullZoomView
+    android:id="@+id/pzv"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:tag="header">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/splash"
+                android:tag="zoom"/>
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:src="@mipmap/header"
+                android:tag="zoom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:shadowRadius="3"
+                android:text="用户名"
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+
+            <LinearLayout
+                android:id="@+id/ll_action_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:background="#D555"
+                android:dividerPadding="16dp"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/tv_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="注册"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="登录"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#88ff0000"
+                android:tag="sticky"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#ffffff00"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#ffaaff33"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#880000ff"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#ff00ffff"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#88ff3333"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#ffffeeee"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#ff0033ff"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#88cc9922"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#88333333"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#88eeeeee"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#ff999999"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#fff322ff"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#ff22ff22"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</com.yimeiduo.business.widget.PullZoomView>

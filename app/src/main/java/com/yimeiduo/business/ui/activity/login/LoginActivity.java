@@ -23,6 +23,7 @@ import com.yimeiduo.business.entity.response.LoginEntity;
 import com.yimeiduo.business.mvvm.QueryWeatherActivity;
 import com.yimeiduo.business.ui.activity.CoordinatorLayoutActivity;
 import com.yimeiduo.business.ui.activity.MainActivity;
+import com.yimeiduo.business.ui.activity.PullScrollViewActivity;
 import com.yimeiduo.business.ui.activity.SanFangActivity;
 import com.yimeiduo.business.ui.activity.login.presenter.LoginPresenter;
 import com.yimeiduo.business.ui.activity.login.view.ILoginView;
@@ -81,6 +82,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
         list.add(new CommonBean("MVVM架构",1));
         list.add(new CommonBean("第三方-eventbus",1));
         list.add(new CommonBean("CoordinatorLayout",1));
+        list.add(new CommonBean("PullZoom",1));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(LoginActivity.this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);//设置为垂直布局，这也是默认的
@@ -110,6 +112,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
                         break;
                     case 3:
                         startActivity(new Intent(LoginActivity.this, CoordinatorLayoutActivity.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(LoginActivity.this, PullScrollViewActivity.class));
                         break;
                 }
             }
