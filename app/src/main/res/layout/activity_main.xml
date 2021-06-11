@@ -18,51 +18,61 @@
         android:layout_height="@dimen/dp_1"
         android:background="@color/color_F3F5F4"/>
 
-    <com.chaychan.library.BottomBarLayout
+    <com.yimeiduo.business.widget.bottombar.BottomBarLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/color_F3F5F4">
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@color/tab_gb"
+        >
 
-        <com.chaychan.library.BottomBarItem
+        <com.yimeiduo.business.widget.bottombar.BottomBarItem
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:iconNormal="@mipmap/ic_home"
-            app:iconSelected="@mipmap/ic_home_select"
+            android:layout_height="match_parent"
+            app:iconWidth="30dp"
+            app:iconHeight="30dp"
+            app:lottieJson="home.json"
             app:itemText="@string/tab_home"
-            app:itemTextSize="@dimen/text_size_10"
-            app:textColorNormal="@color/color_999999"
-            app:textColorSelected="@color/color_0C0C0C"
+            app:textColorNormal="@color/tab_normal_color"
+            app:textColorSelected="@color/tab_selected_color"
+            app:itemTextSize="10sp"
             app:openTouchBg="true"
-            app:touchDrawable="@drawable/selector_bottom_tab"
-            app:tabTextAppearance="@style/MyTabLayoutAppearance" />
+            app:touchDrawable="@drawable/selector_bg"
+            />
 
-        <com.chaychan.library.BottomBarItem
+        <com.yimeiduo.business.widget.bottombar.BottomBarItem
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:iconNormal="@mipmap/ic_business"
-            app:iconSelected="@mipmap/ic_business_select"
+            android:layout_height="match_parent"
+            app:iconWidth="30dp"
+            app:iconHeight="30dp"
+            app:lottieJson="category.json"
             app:itemText="@string/tab_business"
-            app:itemTextSize="@dimen/text_size_10"
-            app:textColorNormal="@color/color_999999"
-            app:textColorSelected="@color/color_0C0C0C"
+            app:textColorNormal="@color/tab_normal_color"
+            app:textColorSelected="@color/tab_selected_color"
+            app:itemTextSize="10sp"
             app:openTouchBg="true"
-            app:touchDrawable="@drawable/selector_bottom_tab" />
+            app:unreadThreshold="999"
+            app:touchDrawable="@drawable/selector_bg"
+            />
 
-        <com.chaychan.library.BottomBarItem
+        <com.yimeiduo.business.widget.bottombar.BottomBarItem
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:iconNormal="@mipmap/ic_my"
-            app:iconSelected="@mipmap/ic_my_select"
+            android:layout_height="match_parent"
+            app:iconWidth="30dp"
+            app:iconHeight="30dp"
+            app:lottieJson="cart.json"
             app:itemText="@string/tab_me"
-            app:itemTextSize="@dimen/text_size_10"
-            app:textColorNormal="@color/color_999999"
-            app:textColorSelected="@color/color_0C0C0C"
+            app:textColorNormal="@color/tab_normal_color"
+            app:textColorSelected="@color/tab_selected_color"
+            app:itemTextSize="10sp"
             app:openTouchBg="true"
-            app:touchDrawable="@drawable/selector_bottom_tab" />
-    </com.chaychan.library.BottomBarLayout>
+            app:touchDrawable="@drawable/selector_bg"
+            />
+    </com.yimeiduo.business.widget.bottombar.BottomBarLayout>
 
 </LinearLayout>

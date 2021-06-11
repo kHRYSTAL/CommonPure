@@ -14,4 +14,11 @@ public class TypeEvent {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "TypeEvent{" +
+                "type='" + type + '\'' +
+                '}';
+    }
 }

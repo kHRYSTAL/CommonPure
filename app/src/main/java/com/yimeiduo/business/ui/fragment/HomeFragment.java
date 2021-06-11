@@ -10,11 +10,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseFragment;
 import com.yimeiduo.business.base.BasePresenter;
+import com.yimeiduo.business.eventbus.TypeEvent;
 import com.yimeiduo.business.ui.adapter.RecycleAdapter;
 import com.yimeiduo.business.util.MyLog;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +54,8 @@ public class HomeFragment extends BaseFragment  {
 
     @Override
     public void initData() {
+        registerEventBus(this);
+        MyLog.i(TAG,TAG+"注册");
         MyLog.i(TAG,"加载了: initData");
         initRecyclerView();
     }
@@ -59,6 +65,24 @@ public class HomeFragment extends BaseFragment  {
         list = new ArrayList<>();
         list.add("1");
         list.add("2");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
+        list.add("3");
         list.add("3");
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -85,6 +109,16 @@ public class HomeFragment extends BaseFragment  {
 
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void setRefresh(TypeEvent event){
+        MyLog.i(TAG, "event: " + event);
+        switch (event.getType()){
+            case "refresh":
+                recyclerView.smoothScrollToPosition(0);
+                break;
+        }
+    }
+
     @Override
     public void onFragmentResume() {
         super.onFragmentResume();
@@ -93,6 +127,13 @@ public class HomeFragment extends BaseFragment  {
     @Override
     public void onFragmentPause() {
         super.onFragmentPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unregisterEventBus(this);
+        MyLog.i(TAG,TAG+"取消注册");
     }
 
 }

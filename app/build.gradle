@@ -123,8 +123,9 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.multidex:multidex:2.0.0'
-    implementation project(':imagepicker')
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
 
+    implementation project(':imagepicker')
 
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -190,11 +191,13 @@ dependencies {
     //生成二维码
     implementation 'com.google.zxing:core:3.3.2'
 
-    implementation 'com.github.chaychan:BottomBarLayout:1.0.1'
+//    implementation 'com.github.chaychan:BottomBarLayout:1.0.1'
     implementation 'com.github.nukc.stateview:library:1.2.1'
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 
     debugImplementation 'com.github.markzhai:blockcanary-android:1.5.0'
+
+    implementation "com.airbnb.android:lottie:3.5.0"
 }

@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.chaychan.library.UIUtils;
 import com.yimeiduo.business.entity.response.LoginEntity;
 import com.yimeiduo.business.listener.PermissionListener;
 import com.yimeiduo.business.ui.activity.MainActivity;

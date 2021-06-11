@@ -53,7 +53,8 @@
         android:supportsRtl="true"
         android:name="com.yimeiduo.business.MyApplication"
         tools:replace="icon,label,theme"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:networkSecurityConfig="@xml/network_security_config">
 
         <!-- For test only 测试高级功能 download-->
         <provider
