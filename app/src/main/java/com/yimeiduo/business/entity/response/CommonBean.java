@@ -1,13 +1,15 @@
 package com.yimeiduo.business.entity.response;
 
+import com.yimeiduo.business.base.BaseData;
+
 import java.io.Serializable;
 
-public class CommonBean implements Serializable {
+public class CommonBean extends BaseData implements Serializable {
 
     private String name;
     private int state;
 
-    public CommonBean(String name, int state){
+    public CommonBean(String name, int state) {
         this.name = name;
         this.state = state;
     }

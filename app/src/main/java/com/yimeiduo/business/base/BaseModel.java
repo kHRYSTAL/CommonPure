@@ -3,7 +3,7 @@ package com.yimeiduo.business.base;
 import com.yimeiduo.business.net.RetrofitHelper;
 import com.yimeiduo.business.net.RetrofitService;
 
-public abstract class BaseModel<T> implements IBaseModel<T> {
+public abstract class BaseModel<T extends BaseData> implements IBaseModel<T> {
     protected RetrofitService mApiService = RetrofitHelper.getInstance().getRetrofitService();
 
 

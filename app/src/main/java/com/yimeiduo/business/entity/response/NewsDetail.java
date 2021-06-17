@@ -1,12 +1,15 @@
 package com.yimeiduo.business.entity.response;
 
+import com.google.gson.Gson;
+import com.yimeiduo.business.base.BaseData;
+
 /**
  * @author ChayChan
  * @description: 新闻详情
  * @date 2017/6/28  15:25
  */
 
-public class NewsDetail {
+public class NewsDetail extends BaseData {
 
     /**
      * _ck : {}

@@ -1,11 +1,13 @@
 package com.yimeiduo.business.entity.response;
 
+import com.yimeiduo.business.base.BaseData;
+
 import java.io.IOException;
 
 /**
  * 登录失败,仅登陆失败出现
  */
-public class ErrorEntity extends IOException {
+public class ErrorEntity extends BaseData {
 
     /**
      * error : 400

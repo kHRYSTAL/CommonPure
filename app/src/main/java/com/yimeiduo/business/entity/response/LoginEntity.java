@@ -1,8 +1,10 @@
 package com.yimeiduo.business.entity.response;
 
+import com.yimeiduo.business.base.BaseData;
+
 import java.io.Serializable;
 
-public class LoginEntity implements Serializable {
+public class LoginEntity extends BaseData implements Serializable {
 
     private String token;
     private String msg;
@@ -69,6 +71,11 @@ public class LoginEntity implements Serializable {
 
     public void setData(UserInfoBean data) {
         this.data = data;
+    }
+
+    @Override
+    public String dataToString() {
+        return null;
     }
 
     public static class UserInfoBean implements Serializable {
