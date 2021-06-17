@@ -19,5 +19,4 @@ public class HomeModel extends BaseModel<NewsDetail> {
             setCache(HOME_KEY, v.getData());
         });
     }
-
 }
