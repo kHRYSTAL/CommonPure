@@ -9,5 +9,4 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
         super(view);
     }
 
-
 }

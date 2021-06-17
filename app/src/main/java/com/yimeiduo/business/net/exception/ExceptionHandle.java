@@ -1,5 +1,7 @@
 package com.yimeiduo.business.net.exception;
 
+import androidx.annotation.Nullable;
+
 import com.yimeiduo.business.entity.response.ErrorEntity;
 import com.yimeiduo.business.entity.response.ExceptionEntity;
 import com.google.gson.JsonParseException;
@@ -184,8 +186,26 @@ public class ExceptionHandle {
      * 统一异常类，便于处理
      */
     public static class ResponseException extends IOException {
-        public int code;
+        private int code;
         public String message;
+
+        public int getCode() {
+            return code;
+        }
+
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        @Nullable
+        @Override
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
 
         public ResponseException(Throwable throwable, int code) {
             super(throwable);

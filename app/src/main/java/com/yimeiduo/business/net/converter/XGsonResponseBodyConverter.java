@@ -29,16 +29,25 @@ final class XGsonResponseBodyConverter<T> implements Converter<ResponseBody, T> 
         String response = value.string();
 
         ErrorEntity entity = gson.fromJson(response, ErrorEntity.class);//登录
-        if (entity.getCode() != 200 ) {
-            value.close();
-            Log.e("Converter2==>", entity.toString());
-            throw new ExceptionHandle.ResponseException(entity, entity.getCode());
 
-        } else {
+        if (entity.isSuccess()){
             try {
                 return adapter.fromJson(response);
             } finally {
                 value.close();
+            }
+        } else {
+            if (entity.getCode() != 200 ) {
+                value.close();
+                Log.e("Converter2==>", entity.toString());
+                throw new ExceptionHandle.ResponseException(entity, entity.getCode());
+
+            } else {
+                try {
+                    return adapter.fromJson(response);
+                } finally {
+                    value.close();
+                }
             }
         }
 

@@ -13,10 +13,8 @@ public abstract class BasePresenter<V> {
 
     public static final String TAG = BasePresenter.class.getSimpleName();
 
-    protected RetrofitService mApiService = RetrofitHelper.getInstance().getRetrofitService();
-
     protected WeakReference<V> mViewRef;
-    protected CompositeDisposable mCompositeSubscription;
+    public CompositeDisposable mCompositeSubscription;
 
     public BasePresenter(V view) {
         addSubscription();

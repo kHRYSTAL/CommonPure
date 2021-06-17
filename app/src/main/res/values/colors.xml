@@ -29,8 +29,8 @@
 
 <!--    <color name="tab_gb">#F3F5F4</color>-->
     <color name="tab_gb">#ffffff</color>
-    <color name="tab_normal_color">#515051</color>
-    <color name="tab_selected_color">#D33D3C</color>
+    <color name="tab_normal_color">#8B98A9</color>
+    <color name="tab_selected_color">#ff6400</color>
 
     <color name="unreadTextColor">#00ff00</color>
     <color name="msgTextColor">#00ff00</color>

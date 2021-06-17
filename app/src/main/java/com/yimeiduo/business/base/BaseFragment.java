@@ -40,6 +40,10 @@ public abstract class BaseFragment<T extends BasePresenter> extends LazyLoadFrag
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //防止被回收后出现的异常
+        if(mPresenter==null){
+            mPresenter = createPresenter();
+        }
         if (rootView == null) {
             rootView = inflater.inflate(provideContentViewId(),container,false);
             ButterKnife.bind(this, rootView);

@@ -11,6 +11,7 @@ import com.yimeiduo.business.ui.adapter.MainTabAdapter;
 import com.yimeiduo.business.ui.fragment.ChatFragment;
 import com.yimeiduo.business.ui.fragment.HomeFragment;
 import com.yimeiduo.business.ui.fragment.MineFragment;
+import com.yimeiduo.business.ui.fragment.WelfareFragment;
 import com.yimeiduo.business.util.MyLog;
 import com.yimeiduo.business.widget.NoScrollViewPager;
 import com.yimeiduo.business.widget.bottombar.BottomBarItem;
@@ -58,6 +59,7 @@ public class MainActivity extends BaseActivity {
 
         mFragments.add(new ChatFragment());
 
+        mFragments.add(new WelfareFragment());
         mFragments.add(new MineFragment());
     }
 

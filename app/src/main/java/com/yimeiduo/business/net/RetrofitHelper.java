@@ -3,6 +3,7 @@ package com.yimeiduo.business.net;
 
 import com.yimeiduo.business.Constant;
 import com.yimeiduo.business.entity.response.LoginEntity;
+import com.yimeiduo.business.net.converter.XGsonConverterFactory;
 import com.yimeiduo.business.util.MyLog;
 import com.yimeiduo.business.util.SpUtil;
 
@@ -66,7 +67,6 @@ public class RetrofitHelper {
                         .addHeader("Authorization", "youtu  " + access_token())
                         .build();
 
-
 /*//                        if (chain.proceed(request).code()== 401){
 //                            AppManager.getAppManager().finishOthersActivity(LoginStrongActivity.class);
 //                            context.startActivity(new Intent(context,LoginStrongActivity.class));
@@ -80,9 +80,9 @@ public class RetrofitHelper {
         mClient = builder.build();
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(Constant.URL_BASE)
-                .addConverterFactory(GsonConverterFactory.create())
-//                .addConverterFactory(XGsonConverterFactory.create())
-//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(XGsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(mClient)
                 .build();
         retrofitService = mRetrofit.create(RetrofitService.class);

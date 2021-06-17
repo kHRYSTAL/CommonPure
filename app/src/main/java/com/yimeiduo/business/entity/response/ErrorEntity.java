@@ -16,6 +16,15 @@ public class ErrorEntity extends IOException {
     private int code;
     private String msg;
     private String systemTime;
+    private boolean success;
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
 
     public int getCode() {
         return code;

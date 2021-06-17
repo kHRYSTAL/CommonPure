@@ -4,7 +4,8 @@
 
     <!--add by cq  start   -->
     <string name="tab_home">首页</string>
-    <string name="tab_business">美言</string>
+    <string name="tab_bank">榜单</string>
+    <string name="tab_welfare">福利</string>
     <string name="tab_me">我的</string>
 
     <string name="desc_spread">查看更多</string>

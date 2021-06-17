@@ -1,16 +1,20 @@
 package com.yimeiduo.business.ui.fragment;
 
 
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.yimeiduo.business.Constant;
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseFragment;
-import com.yimeiduo.business.base.BasePresenter;
+import com.yimeiduo.business.entity.response.NewsDetail;
 import com.yimeiduo.business.eventbus.TypeEvent;
+import com.yimeiduo.business.ui.activity.home.presenter.HomePresenter;
+import com.yimeiduo.business.ui.activity.home.view.IHomeView;
 import com.yimeiduo.business.ui.adapter.RecycleAdapter;
 import com.yimeiduo.business.util.MyLog;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -25,8 +29,11 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class HomeFragment extends BaseFragment  {
+public class HomeFragment extends BaseFragment<HomePresenter>  implements IHomeView {
     protected static final String TAG = HomeFragment.class.getSimpleName();
+
+    @BindView(R.id.tv_home)
+    TextView tv_home;
 
     @BindView(R.id.refreshLayout)
     RefreshLayout refreshLayout;
@@ -38,8 +45,8 @@ public class HomeFragment extends BaseFragment  {
     private List<String> list;
 
     @Override
-    protected BasePresenter createPresenter() {
-        return null;
+    protected HomePresenter createPresenter() {
+        return new HomePresenter(HomeFragment.this);
     }
 
     @Override
@@ -50,6 +57,7 @@ public class HomeFragment extends BaseFragment  {
     @Override
     protected void loadData() {
         MyLog.i(TAG,"加载了:loadData() ");
+        mPresenter.getNewsDetail(Constant.URL_BASE);
     }
 
     @Override
@@ -65,24 +73,6 @@ public class HomeFragment extends BaseFragment  {
         list = new ArrayList<>();
         list.add("1");
         list.add("2");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
-        list.add("3");
         list.add("3");
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -136,4 +126,13 @@ public class HomeFragment extends BaseFragment  {
         MyLog.i(TAG,TAG+"取消注册");
     }
 
+    @Override
+    public void onSuccess(NewsDetail newsDetail) {
+        MyLog.i(TAG,"newsDetail--" + newsDetail);
+    }
+
+    @Override
+    public void onFails(String exception) {
+        MyLog.i(TAG,"exception" + exception);
+    }
 }

@@ -11,6 +11,33 @@ public class CommonResponse<T> implements Serializable {
     private int total;
     private T data;
 
+    public String has_more;
+    public String message;
+    public String success;
+
+    public String getHas_more() {
+        return has_more;
+    }
+
+    public void setHas_more(String has_more) {
+        this.has_more = has_more;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(String success) {
+        this.success = success;
+    }
 //    {"token":null,"code":401,"msg":"手机号不存在","data":null,"total":0,"systemTime":"2019-12-23 08:59:31"}
 
 
