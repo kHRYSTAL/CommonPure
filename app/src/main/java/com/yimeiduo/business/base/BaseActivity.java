@@ -5,19 +5,13 @@ import android.app.Dialog;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
+import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
+import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
 import com.yimeiduo.business.entity.response.LoginEntity;
 import com.yimeiduo.business.listener.PermissionListener;
 import com.yimeiduo.business.ui.activity.MainActivity;
 import com.yimeiduo.business.util.ToastUtil;
 import com.yimeiduo.business.util.UIUtil;
-import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
-import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
 import com.yimeiduo.business.widget.dialog.LoadingDialog;
 
 import org.greenrobot.eventbus.EventBus;
@@ -27,6 +21,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import butterknife.ButterKnife;
 
 import static com.github.anzewei.parallaxbacklayout.ViewDragHelper.EDGE_LEFT;
@@ -39,9 +38,9 @@ import static com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout.LA
  * @date 2017/6/10  16:42
  */
 
-public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity {
+public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity implements IBaseView {
     public final static String TAG = BaseActivity.class.getSimpleName();
-    public int page =1;
+    public int page = 1;
     protected T mPresenter;
     private static long mPreTime;
     private static Activity mCurrentActivity;// 对所有activity进行管理
@@ -51,6 +50,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
     protected LoginEntity loginEntity;
 
     protected Dialog dialog;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +59,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
             ParallaxBackLayout layout = ParallaxHelper.getParallaxBackLayout(this, true);
             layout.setEdgeMode(EDGE_MODE_DEFAULT);//边缘滑动
             layout.setEdgeFlag(getEdgeDirection());
-            layout.setLayoutType(getSlideLayoutType(),null);
+            layout.setLayoutType(getSlideLayoutType(), null);
 
             layout.setSlideCallback(new ParallaxBackLayout.ParallaxSlideCallback() {
                 @Override
@@ -67,6 +67,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
                     //收起软键盘
                     UIUtil.hideInput(getWindow().getDecorView());
                 }
+
                 @Override
                 public void onPositionChanged(float percent) {
                 }
@@ -92,53 +93,22 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
         initListener();
     }
 
-
-    /**
-     * 显示加载进度条
-     */
-    public void showProgress(String content) {
-        if(dialog == null) {
-            dialog = LoadingDialog.createLoadingDialog(this, content,false);
-            dialog.show();
-        }
-    }
-
-    /**
-     * 显示加载进度条
-     */
-    public void showProgressCanDis(String content) {
-        if(dialog == null) {
-            dialog = LoadingDialog.createLoadingDialog(this, content,true);
-            dialog.show();
-        }
-    }
-
-
-    /**
-     * 隐藏加载进度条
-     */
-    public void hideProgress() {
-        if(dialog !=null) {
-            dialog.dismiss();
-            dialog =null;
-        }
-    }
-
-
     public boolean enableSlideClose() {
         return true;
     }
 
     /**
      * 默认为左滑，子类可重写返回对应的方向
+     *
      * @return
      */
-    public int getEdgeDirection(){
+    public int getEdgeDirection() {
         return EDGE_LEFT;
     }
 
     /**
      * 默认为覆盖滑动关闭效果，子类可重写
+     *
      * @return
      */
     public int getSlideLayoutType() {
@@ -205,7 +175,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
 
     @Override
     public void onBackPressed() {
-        if (mCurrentActivity instanceof MainActivity){
+        if (mCurrentActivity instanceof MainActivity) {
             /*//如果是主页面
             if (System.currentTimeMillis() - mPreTime > 2000) { // 两次点击间隔大于2秒
                 ToastUtil.showShort("再按一次，退出应用");
@@ -218,7 +188,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
                 ToastUtil.showShort("再按一次，退出应用");
                 mPreTime = System.currentTimeMillis();
                 return;
-            }else{
+            } else {
 
                 mCurrentActivity.finish();
 //                AppManager.getAppManager().finishAllActivity();
@@ -286,6 +256,32 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
                     }
                 }
                 break;
+        }
+    }
+
+    /**
+     * 显示加载进度条
+     */
+    public void showProgressCanDis(String content) {
+        if (dialog == null) {
+            dialog = LoadingDialog.createLoadingDialog(this, content, true);
+            dialog.show();
+        }
+    }
+
+    @Override
+    public void showLoading(String content) {
+        if (dialog == null) {
+            dialog = LoadingDialog.createLoadingDialog(this, content, false);
+            dialog.show();
+        }
+    }
+
+    @Override
+    public void hideLoading() {
+        if (dialog != null) {
+            dialog.dismiss();
+            dialog = null;
         }
     }
 }

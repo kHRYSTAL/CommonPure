@@ -8,9 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.nukc.stateview.StateView;
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.widget.dialog.LoadingDialog;
-import com.github.nukc.stateview.StateView;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
  * @date 2017/6/10  17:09
  */
 
-public abstract class BaseFragment<T extends BasePresenter> extends LazyLoadFragment {
+public abstract class BaseFragment<T extends BasePresenter> extends LazyLoadFragment implements IBaseView {
     protected static final String TAG = BaseFragment.class.getSimpleName();
     protected T mPresenter;
     private View rootView;
@@ -41,15 +41,15 @@ public abstract class BaseFragment<T extends BasePresenter> extends LazyLoadFrag
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //防止被回收后出现的异常
-        if(mPresenter==null){
+        if (mPresenter == null) {
             mPresenter = createPresenter();
         }
         if (rootView == null) {
-            rootView = inflater.inflate(provideContentViewId(),container,false);
+            rootView = inflater.inflate(provideContentViewId(), container, false);
             ButterKnife.bind(this, rootView);
 
             mStateView = StateView.inject(getStateViewRoot());
-            if (mStateView != null){
+            if (mStateView != null) {
                 mStateView.setLoadingResource(R.layout.page_loading);
                 mStateView.setEmptyResource(R.layout.page_empty);
                 mStateView.setRetryResource(R.layout.page_net_error);
@@ -74,7 +74,9 @@ public abstract class BaseFragment<T extends BasePresenter> extends LazyLoadFrag
         return rootView;
     }
 
-    /**StateView的根布局，默认是整个界面，如果需要变换可以重写此方法*/
+    /**
+     * StateView的根布局，默认是整个界面，如果需要变换可以重写此方法
+     */
     public View getStateViewRoot() {
         return rootView;
     }
@@ -87,6 +89,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends LazyLoadFrag
 
     /**
      * 初始化一些view
+     *
      * @param rootView
      */
     public void initView(View rootView) {
@@ -151,24 +154,19 @@ public abstract class BaseFragment<T extends BasePresenter> extends LazyLoadFrag
         }
     }
 
-    /**
-     * 显示加载进度条
-     */
-    public void showProgress(String content) {
-        if(dialog == null) {
-            dialog = LoadingDialog.createLoadingDialog(mActivity, content,false);
+    @Override
+    public void showLoading(String content) {
+        if (dialog == null) {
+            dialog = LoadingDialog.createLoadingDialog(mActivity, content, false);
             dialog.show();
         }
     }
 
-    /**
-     * 隐藏加载进度条
-     */
-    public void hideProgress() {
+    @Override
+    public void hideLoading() {
         if(dialog !=null) {
             dialog.dismiss();
             dialog =null;
         }
     }
-
 }

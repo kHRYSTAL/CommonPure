@@ -1,20 +1,12 @@
 package com.yimeiduo.business.ui.activity.login;
 
 import android.Manifest;
-import android.content.ContentProvider;
 import android.content.Intent;
-
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.OrientationHelper;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseActivity;
 import com.yimeiduo.business.entity.CommonResponse;
@@ -25,19 +17,19 @@ import com.yimeiduo.business.ui.activity.CoordinatorLayoutActivity;
 import com.yimeiduo.business.ui.activity.MainActivity;
 import com.yimeiduo.business.ui.activity.PullScrollViewActivity;
 import com.yimeiduo.business.ui.activity.SanFangActivity;
+import com.yimeiduo.business.ui.activity.login.model.LoginModel;
 import com.yimeiduo.business.ui.activity.login.presenter.LoginPresenter;
 import com.yimeiduo.business.ui.activity.login.view.ILoginView;
 import com.yimeiduo.business.ui.adapter.CommonAdapter;
-import com.yimeiduo.business.util.CommonUtils;
 import com.yimeiduo.business.util.ToastUtil;
-import com.coorchice.library.SuperTextView;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
-import butterknife.OnClick;
 import io.reactivex.functions.Consumer;
 
 public class LoginActivity extends BaseActivity<LoginPresenter> implements ILoginView {
@@ -48,13 +40,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
     ImageView iv_logo;
 
 
-
     private CommonAdapter adapter;
 
     private List<CommonBean> list;
 
     protected LoginPresenter createPresenter() {
-        return new LoginPresenter(LoginActivity.this);
+        return new LoginPresenter(this, new LoginModel());
     }
 
     @Override
@@ -74,15 +65,15 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
         Glide.with(this)
                 .load("http://images.youtukd.com/2020/02/14/1581660763873.jpg")
                 .placeholder(R.mipmap.ic_logo)
-                .override(300,300)
+                .override(300, 300)
                 .into(iv_logo);
 
         list = new ArrayList<>();
-        list.add(new CommonBean("MVP架构",1));
-        list.add(new CommonBean("MVVM架构",1));
-        list.add(new CommonBean("第三方-eventbus",1));
-        list.add(new CommonBean("CoordinatorLayout",1));
-        list.add(new CommonBean("PullZoom",1));
+        list.add(new CommonBean("MVP架构", 1));
+        list.add(new CommonBean("MVVM架构", 1));
+        list.add(new CommonBean("第三方-eventbus", 1));
+        list.add(new CommonBean("CoordinatorLayout", 1));
+        list.add(new CommonBean("PullZoom", 1));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(LoginActivity.this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);//设置为垂直布局，这也是默认的
@@ -95,7 +86,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
         adapter.setOnItemClickListener(new CommonAdapter.onItemClickListener() {
             @Override
             public void onItemClick(View view, String type, int position) {
-                switch (position){
+                switch (position) {
                     case 0:
                        /* try {
                             Thread.sleep(100000);
@@ -127,12 +118,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
 
     @Override
     public void onSuccess(LoginEntity loginEntity) {
-        hideProgress();
+        hideLoading();
     }
 
     @Override
     public void onFails(String exception) {
-        hideProgress();
+        hideLoading();
         ToastUtil.showShort(exception);
     }
 

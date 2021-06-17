@@ -3,23 +3,19 @@ package com.yimeiduo.business.ui.fragment;
 
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.yimeiduo.business.Constant;
 import com.yimeiduo.business.R;
 import com.yimeiduo.business.base.BaseFragment;
 import com.yimeiduo.business.entity.response.NewsDetail;
 import com.yimeiduo.business.eventbus.TypeEvent;
+import com.yimeiduo.business.ui.activity.home.model.HomeModel;
 import com.yimeiduo.business.ui.activity.home.presenter.HomePresenter;
 import com.yimeiduo.business.ui.activity.home.view.IHomeView;
 import com.yimeiduo.business.ui.adapter.RecycleAdapter;
 import com.yimeiduo.business.util.MyLog;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -27,9 +23,13 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
-public class HomeFragment extends BaseFragment<HomePresenter>  implements IHomeView {
+public class HomeFragment extends BaseFragment<HomePresenter> implements IHomeView {
     protected static final String TAG = HomeFragment.class.getSimpleName();
 
     @BindView(R.id.tv_home)
@@ -46,7 +46,7 @@ public class HomeFragment extends BaseFragment<HomePresenter>  implements IHomeV
 
     @Override
     protected HomePresenter createPresenter() {
-        return new HomePresenter(HomeFragment.this);
+        return new HomePresenter(this, new HomeModel());
     }
 
     @Override

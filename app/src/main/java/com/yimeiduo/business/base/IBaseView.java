@@ -2,14 +2,14 @@ package com.yimeiduo.business.base;
 
 public interface IBaseView {
 
-//    /**
-//     * 显示正在加载view
-//     */
-//    void showLoading();
-//    /**
-//     * 关闭正在加载view
-//     */
-//    void hideLoading();
+    /**
+     * 显示正在加载view
+     */
+    void showLoading(String content);
+    /**
+     * 关闭正在加载view
+     */
+    void hideLoading();
 //    /**
 //     * 显示提示
 //     * @param msg
@@ -19,6 +19,5 @@ public interface IBaseView {
 //     * 显示请求错误提示
 //     */
 //    void showErr();
-
 
 }
